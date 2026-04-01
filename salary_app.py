@@ -1,4 +1,6 @@
-
+# Create fixed version
+with open('salary_app_fixed.py', 'w') as f:
+    f.write("""
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -40,8 +42,15 @@ if uploaded_file is not None:
     
 else:
     st.info("📁 Please upload your CSV file to get started")
-    st.markdown(
-    - **Experience_Years** - Years of work experience
-    - **Age** - Employee age
-    - **Gender** - Male/Female
-    - **Salary** - Annual salary)
+    st.markdown("""
+    **Expected columns:**
+    * Experience_Years - Years of work experience
+    * Age - Employee age
+    * Gender - Male/Female
+    * Salary - Annual salary
+    """)
+""")
+
+# Download the fixed file
+from google.colab import files
+files.download('salary_app_fixed.py')
