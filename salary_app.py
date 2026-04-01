@@ -1,6 +1,6 @@
-# Create fixed version
-with open('salary_app_fixed.py', 'w') as f:
-    f.write("""
+# Create fixed version with proper syntax
+with open('salary_app.py', 'w') as f:
+    f.write('''
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -49,8 +49,19 @@ else:
     * Gender - Male/Female
     * Salary - Annual salary
     """)
-""")
+''')
 
-# Download the fixed file
+# Verify the file was created correctly
+with open('salary_app.py', 'r') as f:
+    print("First 10 lines of the file:")
+    print("-" * 40)
+    lines = f.readlines()[:10]
+    for line in lines:
+        print(line.rstrip())
+
+# Download the file
 from google.colab import files
-files.download('salary_app_fixed.py')
+files.download('salary_app.py')
+
+print("\n✅ File created and downloaded!")
+print("📤 Now upload this salary_app.py to your GitHub repository")
